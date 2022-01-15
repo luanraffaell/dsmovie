@@ -1,22 +1,19 @@
 import { Link } from "react-router-dom";
+import { Movie } from "../../types/movies";
 import MovieScore from "../MovieScore";
 
+type Props = {
+    movies : Movie;
+}
 
-
-function MovieCard(){
-    const movie = {
-        id: 1,
-        image: "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/jBJWaqoSCiARWtfV0GlqHrcdidd.jpg",
-        title: "The Witcher",
-        count: 2,
-        score: 4.5
-    };
+function MovieCard( {movies} : Props){
+   
     return(
         <div>
-    <img className="dsmovie-movie-card-image" src={movie.image} alt={movie.title} />
+    <img className="dsmovie-movie-card-image" src={movies.image} alt={movies.title} />
     <div className="dsmovie-card-bottom-container">
-        <h3>{movie.title}</h3>
-        <Link to={`../../Form/${movie.id}`}>
+        <h3>{movies.title}</h3>
+        <Link to={`../../Form/${movies.id}`}>
         <div className="btn btn-primary dsmovie-btn">Avaliar</div>
         </Link>
         <MovieScore />
